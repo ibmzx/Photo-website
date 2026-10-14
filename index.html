@@ -3,52 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex Vance | Full-Stack Engineer & UI/UX Specialist</title>
-  <meta name="description" content="Modern, high-performance portfolio website of Alex Vance - Full-Stack Developer & UI/UX Specialist. Sleek dark theme with neon purple accents.">
-
-  <!-- Fonts -->
+  <title>Alex Vance | Professional Photographer Portfolio</title>
+  <meta name="description" content="Sleek dark mode photography portfolio of Alex Vance specializing in Cyberpunk Portraits, Night Landscapes, Urban Architecture, and Street Photography.">
+  <!-- Google Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Main Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Background Ambient Glow Effects -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#home" class="nav-logo" aria-label="Home page">
-        <span class="logo-icon">&lt;/&gt;</span>
-        <span class="logo-text">ALEX<span class="highlight">.DEV</span></span>
+      <a href="#home" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-camera-retro"></i></span>
+        <span class="logo-text">ALEX<span class="highlight">.LENS</span></span>
       </a>
 
-      <!-- Desktop & Mobile Nav Links -->
       <nav class="nav-menu" id="nav-menu">
         <ul class="nav-list">
-          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About & Gear</a></li>
+          <li><a href="#portfolio" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Book Shoot</a></li>
         </ul>
-        <div class="mobile-nav-footer">
-          <a href="#contact" class="btn btn-primary btn-sm btn-full nav-cta">Let's Talk</a>
+        <div class="nav-cta-mobile">
+          <a href="#contact" class="btn btn-primary btn-sm">Book Shoot</a>
         </div>
       </nav>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-outline btn-sm desktop-only-btn">Let's Talk</a>
-        <!-- Hamburger Menu Toggle Button -->
-        <button class="hamburger" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <a href="#contact" class="btn btn-outline btn-nav-cta">Book Shoot</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -57,532 +47,430 @@
     </div>
   </header>
 
-  <!-- Mobile Nav Backdrop Overlay -->
-  <div class="nav-overlay" id="nav-overlay"></div>
+  <!-- Mobile Menu Backdrop -->
+  <div class="menu-backdrop" id="menu-backdrop"></div>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="status-badge fade-in">
-            <span class="status-dot"></span>
-            <span>Available for new projects & roles</span>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge-tag">
+          <span class="pulse-dot"></span> Available for Commissions & Shoots
+        </div>
+        <h1 class="hero-title">
+          Capturing Light & Shadow in <span class="neon-text">Dark Cyber Aesthetic</span>
+        </h1>
+        <p class="hero-subtitle">
+          Professional Visual Artist & Photographer specializing in neon portraits, cyberpunk cityscapes, night architecture, and dramatic moody street compositions.
+        </p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">
+            Explore Gallery <i class="fa-solid fa-arrow-down-long"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            Book a Shoot <i class="fa-solid fa-calendar-check"></i>
+          </a>
+        </div>
+        <div class="hero-tech-stack">
+          <span class="stack-label">Primary Gear:</span>
+          <div class="stack-tags">
+            <span class="tag"><i class="fa-solid fa-camera"></i> Sony A7 IV</span>
+            <span class="tag"><i class="fa-solid fa-circle-notch"></i> 35mm f/1.4 GM</span>
+            <span class="tag"><i class="fa-solid fa-circle-dot"></i> 85mm f/1.4 GM</span>
+            <span class="tag"><i class="fa-solid fa-plane-slash"></i> DJI Mavic 3</span>
           </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-glow-wrapper">
+          <div class="glow-ring"></div>
+          <img src="assets/avatar.svg" alt="Alex Vance Photographer" class="hero-avatar">
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <h1 class="hero-title fade-in">
-            Crafting <span class="text-gradient">Next-Gen</span> Digital Experiences
-          </h1>
+  <!-- About & Gear Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="highlight">The Artist</span></h2>
+        <div class="title-underline"></div>
+      </div>
 
-          <p class="hero-description fade-in">
-            I'm <strong>Alex Vance</strong>, a Full-Stack Engineer specializing in high-performance web applications, interactive UI design, and sleek, modern dark-mode architectures.
+      <div class="about-grid">
+        <div class="about-text">
+          <h3 class="about-heading">I turn dark nocturnal vibes into high-contrast visual stories.</h3>
+          <p>
+            With over 8 years behind the lens, I specialize in low-light photography, high-contrast neon portraiture, and futuristic urban landscapes. My work balances ambient city glows with sharp subject framing to create cinematic atmosphere.
+          </p>
+          <p>
+            Whether capturing fashion editorials under neon street lamps or producing cover artwork for electronic music producers, every photo is meticulously shot and color-graded.
           </p>
 
-          <div class="hero-cta fade-in">
-            <a href="#portfolio" class="btn btn-primary">
-              <span>View Portfolio</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-              <span>Get in Touch</span>
-            </a>
-          </div>
-
-          <!-- Quick Tech Stack Tags -->
-          <div class="hero-tech-stack fade-in">
-            <span class="tech-stack-title">Tech Stack:</span>
-            <div class="tech-icons">
-              <span class="tech-pill" title="React"><i class="fa-brands fa-react"></i> React</span>
-              <span class="tech-pill" title="TypeScript"><i class="fa-brands fa-js"></i> TypeScript</span>
-              <span class="tech-pill" title="Node.js"><i class="fa-brands fa-node-js"></i> Node.js</span>
-              <span class="tech-pill" title="Python"><i class="fa-brands fa-python"></i> Python</span>
-              <span class="tech-pill" title="CSS3"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-number" data-target="150">150+</span>
+              <span class="metric-label">Completed Shoots</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number" data-target="18">18</span>
+              <span class="metric-label">Exhibitions & Awards</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number" data-target="8">8+</span>
+              <span class="metric-label">Years Experience</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual fade-in">
-          <div class="avatar-wrapper">
-            <div class="neon-ring"></div>
-            <div class="avatar-card">
-              <img src="assets/avatar.svg" alt="Alex Vance Developer Avatar" class="avatar-img">
-            </div>
-            <!-- Floating Achievement Badges -->
-            <div class="floating-badge badge-1">
-              <i class="fa-solid fa-code"></i>
-              <div>
-                <strong>5+ Years</strong>
-                <span>Experience</span>
+        <div class="gear-container">
+          <h3 class="about-heading"><i class="fa-solid fa-sliders"></i> Camera Gear & Kit</h3>
+          <div class="gear-grid">
+            <div class="gear-card">
+              <div class="gear-icon"><i class="fa-solid fa-camera"></i></div>
+              <div class="gear-info">
+                <h4>Sony A7 IV & A7S III</h4>
+                <p>33MP & Low-Light Monster bodies for 4K cinema quality.</p>
               </div>
             </div>
-            <div class="floating-badge badge-2">
-              <i class="fa-solid fa-rocket"></i>
-              <div>
-                <strong>40+ Projects</strong>
-                <span>Delivered</span>
+            <div class="gear-card">
+              <div class="gear-icon"><i class="fa-solid fa-circle-dot"></i></div>
+              <div class="gear-info">
+                <h4>G-Master Prime Lenses</h4>
+                <p>24mm f/1.4, 35mm f/1.4 GM, and 85mm f/1.4 GM ultra-fast optics.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-badge"><i class="fa-solid fa-user"></i> ABOUT ME</span>
-          <h2 class="section-title">Driven by Curiosity, Engineered with Precision</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="about-grid">
-          <!-- Left Column: Avatar Card & Socials -->
-          <div class="about-card-wrapper fade-in">
-            <div class="about-profile-card">
-              <div class="profile-image-container">
-                <img src="assets/avatar.svg" alt="Alex Vance Profile" class="profile-img">
-                <div class="profile-status">
-                  <i class="fa-solid fa-circle"></i> Online & Building
-                </div>
-              </div>
-              <h3 class="profile-name">Alex Vance</h3>
-              <p class="profile-role">Senior Full-Stack Engineer</p>
-
-              <div class="social-links">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Twitter Profile">
-                  <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="mailto:alex.vance@example.com" class="social-btn" aria-label="Email Me">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
+            <div class="gear-card">
+              <div class="gear-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="gear-info">
+                <h4>Godox Lighting Rig</h4>
+                <p>AD200 Pro strobes, RGB tube lights, and portable diffusers.</p>
               </div>
             </div>
-          </div>
-
-          <!-- Right Column: Bio & Key Highlights -->
-          <div class="about-bio-wrapper fade-in">
-            <h3 class="bio-heading">Bridging Design & Cutting-Edge Code</h3>
-            <p class="bio-text">
-              I am a passionate software engineer with over five years of experience building modern web applications, scalable REST/GraphQL APIs, and intuitive user interfaces. I thrive at the intersection of aesthetics and functionality.
-            </p>
-            <p class="bio-text">
-              Whether architecting robust backend microservices or polishing micro-interactions with glowing neon CSS effects, my goal is to deliver performant, user-centric products that stand out.
-            </p>
-
-            <!-- Metric Cards -->
-            <div class="about-metrics-grid">
-              <div class="metric-card">
-                <span class="metric-number">5+</span>
-                <span class="metric-label">Years Experience</span>
+            <div class="gear-card">
+              <div class="gear-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="gear-info">
+                <h4>Post-Production Suite</h4>
+                <p>Adobe Lightroom Classic, Photoshop, and Capture One Pro.</p>
               </div>
-              <div class="metric-card">
-                <span class="metric-number">40+</span>
-                <span class="metric-label">Completed Projects</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">100%</span>
-                <span class="metric-label">Client Satisfaction</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">99.9%</span>
-                <span class="metric-label">Uptime & Reliability</span>
-              </div>
-            </div>
-
-            <!-- Quick Action Links -->
-            <div class="about-actions">
-              <a href="#contact" class="btn btn-primary">Work With Me</a>
-              <a href="#skills" class="btn btn-outline">Explore Skills</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-badge"><i class="fa-solid fa-layer-group"></i> EXPERTISE</span>
-          <h2 class="section-title">Technical Capabilities & Tools</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="skills-grid">
-          <!-- Skill Category 1 -->
-          <div class="skill-category-card fade-in">
-            <div class="skill-category-header">
-              <i class="fa-solid fa-laptop-code category-icon"></i>
-              <h3>Frontend Development</h3>
-            </div>
-            <div class="skill-pills-list">
-              <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</span>
-              <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</span>
-              <span class="skill-tag"><i class="fa-brands fa-react"></i> React & Next.js</span>
-              <span class="skill-tag"><i class="fa-brands fa-vuejs"></i> Vue.js</span>
-              <span class="skill-tag"><i class="fa-brands fa-bootstrap"></i> Tailwind / SCSS</span>
-              <span class="skill-tag"><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</span>
-            </div>
-          </div>
-
-          <!-- Skill Category 2 -->
-          <div class="skill-category-card fade-in">
-            <div class="skill-category-header">
-              <i class="fa-solid fa-server category-icon"></i>
-              <h3>Backend & Databases</h3>
-            </div>
-            <div class="skill-pills-list">
-              <span class="skill-tag"><i class="fa-brands fa-node-js"></i> Node.js & Express</span>
-              <span class="skill-tag"><i class="fa-brands fa-python"></i> Python & FastAPI</span>
-              <span class="skill-tag"><i class="fa-solid fa-database"></i> PostgreSQL & MySQL</span>
-              <span class="skill-tag"><i class="fa-solid fa-leaf"></i> MongoDB & Redis</span>
-              <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> RESTful & GraphQL APIs</span>
-            </div>
-          </div>
-
-          <!-- Skill Category 3 -->
-          <div class="skill-category-card fade-in">
-            <div class="skill-category-header">
-              <i class="fa-solid fa-wand-magic-sparkles category-icon"></i>
-              <h3>UI/UX & DevOps</h3>
-            </div>
-            <div class="skill-pills-list">
-              <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma & UI Design</span>
-              <span class="skill-tag"><i class="fa-brands fa-docker"></i> Docker & Containers</span>
-              <span class="skill-tag"><i class="fa-brands fa-aws"></i> AWS & Vercel</span>
-              <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git & CI/CD Pipelines</span>
-              <span class="skill-tag"><i class="fa-solid fa-gauge-high"></i> Web Performance & SEO</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dedicated Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-badge"><i class="fa-solid fa-briefcase"></i> MY WORK</span>
-          <h2 class="section-title">Featured Projects & Showcase</h2>
-          <p class="section-subtitle">Explore my latest web development, mobile app, and UI/UX design work.</p>
-          <div class="section-divider"></div>
-        </div>
-
-        <!-- Filter Controls -->
-        <div class="portfolio-filter-wrapper fade-in">
-          <button class="filter-btn active" data-filter="all">
-            <i class="fa-solid fa-border-all"></i> All Projects
-          </button>
-          <button class="filter-btn" data-filter="web">
-            <i class="fa-solid fa-globe"></i> Web Apps
-          </button>
-          <button class="filter-btn" data-filter="mobile">
-            <i class="fa-solid fa-mobile-screen-button"></i> Mobile Apps
-          </button>
-          <button class="filter-btn" data-filter="design">
-            <i class="fa-solid fa-palette"></i> UI/UX Design
-          </button>
-        </div>
-
-        <!-- Portfolio Grid Layout -->
-        <div class="portfolio-grid" id="portfolio-grid">
-
-          <!-- Project Card 1 -->
-          <article class="project-card fade-in" data-category="web" data-project-id="1">
-            <div class="project-image-box">
-              <img src="assets/projects/project1.svg" alt="SaaS Analytics Dashboard Preview" class="project-img">
-              <div class="project-overlay">
-                <div class="overlay-content">
-                  <span class="category-badge">Web App</span>
-                  <h3 class="overlay-title">Aura Analytics SaaS</h3>
-                  <div class="overlay-actions">
-                    <button class="btn-icon view-details-btn" aria-label="View Project Details">
-                      <i class="fa-solid fa-expand"></i>
-                    </button>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Source Code">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Aura Analytics SaaS</h3>
-              <p class="project-summary">Real-time telemetry and data visualization platform with customizable dark-mode widgets.</p>
-              <div class="project-tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Chart.js</span>
-                <span>Tailwind</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project Card 2 -->
-          <article class="project-card fade-in" data-category="mobile" data-project-id="2">
-            <div class="project-image-box">
-              <img src="assets/projects/project2.svg" alt="CyberFit Mobile Fitness App Preview" class="project-img">
-              <div class="project-overlay">
-                <div class="overlay-content">
-                  <span class="category-badge">Mobile App</span>
-                  <h3 class="overlay-title">CyberFit Mobile App</h3>
-                  <div class="overlay-actions">
-                    <button class="btn-icon view-details-btn" aria-label="View Project Details">
-                      <i class="fa-solid fa-expand"></i>
-                    </button>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Source Code">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">CyberFit Mobile App</h3>
-              <p class="project-summary">Cross-platform workout tracker with gamified streak system and neon haptic feedback.</p>
-              <div class="project-tags">
-                <span>React Native</span>
-                <span>Expo</span>
-                <span>Redux Toolkit</span>
-                <span>Firebase</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project Card 3 -->
-          <article class="project-card fade-in" data-category="web" data-project-id="3">
-            <div class="project-image-box">
-              <img src="assets/projects/project3.svg" alt="Quantum AI Engine Interface Preview" class="project-img">
-              <div class="project-overlay">
-                <div class="overlay-content">
-                  <span class="category-badge">Web App</span>
-                  <h3 class="overlay-title">Quantum AI Studio</h3>
-                  <div class="overlay-actions">
-                    <button class="btn-icon view-details-btn" aria-label="View Project Details">
-                      <i class="fa-solid fa-expand"></i>
-                    </button>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Source Code">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Quantum AI Studio</h3>
-              <p class="project-summary">Prompt engineering IDE with streaming model outputs and interactive node graphs.</p>
-              <div class="project-tags">
-                <span>Next.js 14</span>
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>WebSockets</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project Card 4 -->
-          <article class="project-card fade-in" data-category="design" data-project-id="4">
-            <div class="project-image-box">
-              <img src="assets/projects/project4.svg" alt="CyberLedger Web3 Portal Preview" class="project-img">
-              <div class="project-overlay">
-                <div class="overlay-content">
-                  <span class="category-badge">UI/UX Design</span>
-                  <h3 class="overlay-title">CyberLedger Web3 Portal</h3>
-                  <div class="overlay-actions">
-                    <button class="btn-icon view-details-btn" aria-label="View Project Details">
-                      <i class="fa-solid fa-expand"></i>
-                    </button>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Source Code">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">CyberLedger Web3 Portal</h3>
-              <p class="project-summary">Next-gen decentralized finance wallet dashboard designed with deep neon purple aesthetic.</p>
-              <div class="project-tags">
-                <span>UI/UX</span>
-                <span>Figma</span>
-                <span>Design System</span>
-                <span>Web3.js</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Lightbox / Project Details Modal -->
-    <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-      <div class="modal-backdrop" id="modal-backdrop"></div>
-      <div class="modal-card">
-        <button class="modal-close" id="modal-close" aria-label="Close modal window">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="modal-content">
-          <div class="modal-image-container">
-            <img src="" alt="Project Detailed View" id="modal-img">
-          </div>
-          <div class="modal-body">
-            <span class="category-badge" id="modal-category">Category</span>
-            <h3 class="modal-title" id="modal-title">Project Title</h3>
-            <p class="modal-description" id="modal-description">Detailed description of the project goes here...</p>
-            <div class="modal-tech-list" id="modal-tags">
-              <!-- Tech tags dynamically inserted -->
-            </div>
-            <div class="modal-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-demo-btn">
-                <span>Live Demo</span> <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="modal-github-btn">
-                <span>Source Code</span> <i class="fa-brands fa-github"></i>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
-          <h2 class="section-title">Let's Build Something Awesome Together</h2>
-          <p class="section-subtitle">Have a project in mind or want to talk tech? Drop a message below!</p>
-          <div class="section-divider"></div>
-        </div>
+  <!-- Gallery / Portfolio Section -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Photo <span class="highlight">Gallery</span></h2>
+        <p class="section-subtitle">Click any image to expand and view shot EXIF camera metadata.</p>
+        <div class="title-underline"></div>
+      </div>
 
-        <div class="contact-grid">
-          <!-- Left Info Cards -->
-          <div class="contact-info-wrapper fade-in">
-            <div class="info-card">
-              <div class="info-icon">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
-              <div>
-                <h4>Email Address</h4>
-                <a href="mailto:alex.vance@example.com">alex.vance@example.com</a>
-              </div>
-            </div>
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Shots</button>
+        <button class="filter-btn" data-filter="portrait">Portrait</button>
+        <button class="filter-btn" data-filter="landscape">Landscape</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+        <button class="filter-btn" data-filter="street">Street</button>
+      </div>
 
-            <div class="info-card">
-              <div class="info-icon">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <div>
-                <h4>Location</h4>
-                <p>San Francisco, CA (Remote Worldwide)</p>
-              </div>
-            </div>
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid" id="portfolio-grid">
 
-            <div class="info-card">
-              <div class="info-icon">
-                <i class="fa-solid fa-clock"></i>
-              </div>
-              <div>
-                <h4>Working Hours</h4>
-                <p>Mon - Fri: 09:00 AM - 06:00 PM PST</p>
-              </div>
-            </div>
-
-            <div class="contact-socials">
-              <h4>Follow My Journey</h4>
-              <div class="social-links">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://codepen.io" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="CodePen"><i class="fa-brands fa-codepen"></i></a>
+        <!-- Photo 1 -->
+        <div class="portfolio-card" data-category="portrait"
+             data-title="Neon Cyber Portrait"
+             data-description="High-contrast ambient neon portrait captured in downtown night district."
+             data-exif-camera="Sony A7 IV"
+             data-exif-lens="FE 85mm f/1.4 GM"
+             data-exif-settings="f/1.4 | 1/200s | ISO 800">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo1.svg" alt="Neon Cyber Portrait" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Portrait</span>
+                <h3>Neon Cyber Portrait</h3>
+                <p>f/1.4 | 1/200s | ISO 800</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Right Form -->
-          <div class="contact-form-wrapper fade-in">
-            <form id="contact-form" class="contact-form" novalidate>
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <div class="input-wrapper">
-                  <i class="fa-solid fa-user input-icon"></i>
-                  <input type="text" id="name" name="name" placeholder="John Doe" required>
-                </div>
-                <span class="error-msg" id="name-error">Please enter your name</span>
+        <!-- Photo 2 -->
+        <div class="portfolio-card" data-category="landscape"
+             data-title="Cyberpunk Cityscape"
+             data-description="Wet street reflections and high-rise skyline under neon night atmosphere."
+             data-exif-camera="Sony A7 IV"
+             data-exif-lens="FE 24mm f/1.4 GM"
+             data-exif-settings="f/2.8 | 1/60s | ISO 1600">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo2.svg" alt="Cyberpunk Cityscape" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Landscape</span>
+                <h3>Cyberpunk Cityscape</h3>
+                <p>f/2.8 | 1/60s | ISO 1600</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="form-group">
-                <label for="email">Your Email</label>
-                <div class="input-wrapper">
-                  <i class="fa-solid fa-envelope input-icon"></i>
-                  <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                </div>
-                <span class="error-msg" id="email-error">Please enter a valid email address</span>
+        <!-- Photo 3 -->
+        <div class="portfolio-card" data-category="architecture"
+             data-title="Architectural Night Spec"
+             data-description="Symmetrical glass facet tower framing under deep twilight sky."
+             data-exif-camera="Sony A7S III"
+             data-exif-lens="FE 16-35mm f/2.8 GM"
+             data-exif-settings="f/8.0 | 4.0s | ISO 100">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo3.svg" alt="Architectural Night Spec" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Architecture</span>
+                <h3>Architectural Night Spec</h3>
+                <p>f/8.0 | 4.0s | ISO 100</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <div class="input-wrapper">
-                  <i class="fa-solid fa-tag input-icon"></i>
-                  <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Feedback">
-                </div>
+        <!-- Photo 4 -->
+        <div class="portfolio-card" data-category="street"
+             data-title="Street Bokeh Glow"
+             data-description="Bokeh street scene in heavy rain with figure silhouette."
+             data-exif-camera="Sony A7 IV"
+             data-exif-lens="FE 35mm f/1.4 GM"
+             data-exif-settings="f/1.4 | 1/160s | ISO 3200">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo4.svg" alt="Street Bokeh Glow" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Street</span>
+                <h3>Street Bokeh Glow</h3>
+                <p>f/1.4 | 1/160s | ISO 3200</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="form-group">
-                <label for="message">Message</label>
-                <div class="input-wrapper textarea-wrapper">
-                  <i class="fa-solid fa-comment-dots input-icon"></i>
-                  <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
-                </div>
-                <span class="error-msg" id="message-error">Please enter a message</span>
+        <!-- Photo 5 -->
+        <div class="portfolio-card" data-category="portrait"
+             data-title="Studio Low-Key Rim Light"
+             data-description="Dramatic rim-lit studio profile photo with dark purple backdrop."
+             data-exif-camera="Sony A7 IV"
+             data-exif-lens="FE 85mm f/1.4 GM"
+             data-exif-settings="f/5.6 | 1/250s | ISO 100">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo5.svg" alt="Studio Low-Key Rim Light" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Portrait</span>
+                <h3>Studio Low-Key Rim Light</h3>
+                <p>f/5.6 | 1/250s | ISO 100</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
-                <span>Send Message</span>
-                <i class="fa-solid fa-paper-plane"></i>
-              </button>
-            </form>
+        <!-- Photo 6 -->
+        <div class="portfolio-card" data-category="landscape"
+             data-title="Moody Night Landscape"
+             data-description="Valley fog under glowing moon and dark mountain ridges."
+             data-exif-camera="Sony A7S III"
+             data-exif-lens="FE 24mm f/1.4 GM"
+             data-exif-settings="f/2.0 | 15.0s | ISO 640">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/projects/photo6.svg" alt="Moody Night Landscape" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="category-badge">Landscape</span>
+                <h3>Moody Night Landscape</h3>
+                <p>f/2.0 | 15.0s | ISO 640</p>
+                <button class="btn btn-icon view-project-btn" aria-label="View photo details">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <!-- Success Toast / Alert Banner -->
-            <div class="form-response-banner" id="form-response" role="alert"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="modal" id="project-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+
+      <div class="lightbox-container">
+        <div class="lightbox-media">
+          <button class="lightbox-nav nav-prev" id="lightbox-prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+          <img src="" alt="" id="modal-img" class="lightbox-img">
+          <button class="lightbox-nav nav-next" id="lightbox-next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div class="lightbox-details">
+          <span class="category-badge" id="modal-category">Portrait</span>
+          <h3 id="modal-title" class="modal-title">Photo Title</h3>
+          <p id="modal-description" class="modal-description">Photo description goes here...</p>
+
+          <div class="exif-box">
+            <h4><i class="fa-solid fa-camera"></i> Shot EXIF Data</h4>
+            <div class="exif-grid">
+              <div class="exif-item"><span class="exif-label">Camera:</span> <span id="exif-camera">Sony A7 IV</span></div>
+              <div class="exif-item"><span class="exif-label">Lens:</span> <span id="exif-lens">35mm f/1.4</span></div>
+              <div class="exif-item"><span class="exif-label">Exposure:</span> <span id="exif-settings">f/1.4 | 1/200s | ISO 800</span></div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+
+  <!-- Contact & Booking Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Book A <span class="highlight">Photoshoot</span></h2>
+        <p class="section-subtitle">Interested in portrait sessions, commercial shoots, or print licenses? Get in touch!</p>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <span class="contact-label">EMAIL ADDRESS</span>
+              <p class="contact-value">alex.vance.photo@example.com</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <span class="contact-label">STUDIO LOCATION</span>
+              <p class="contact-value">San Francisco, CA (Available Worldwide)</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <span class="contact-label">BOOKING HOURS</span>
+              <p class="contact-value">Mon – Sat: 10:00 AM – 08:00 PM PST</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <span class="social-title">Follow My Visuals</span>
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="500px"><i class="fa-brands fa-500px"></i></a>
+              <a href="#" class="social-icon" aria-label="Unsplash"><i class="fa-brands fa-unsplash"></i></a>
+              <a href="#" class="social-icon" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="type">Shoot Type</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-sliders input-icon"></i>
+                <select id="type" name="type" required class="select-input">
+                  <option value="">Select photoshoot type...</option>
+                  <option value="Portrait / Fashion">Portrait / Fashion Session</option>
+                  <option value="Commercial / Branding">Commercial / Branding Shoot</option>
+                  <option value="Event / Nightlife">Event / Nightlife Photography</option>
+                  <option value="Print Licensing">Print Licensing Inquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Shoot Details / Message</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-comment input-icon"></i>
+                <textarea id="message" name="message" rows="4" placeholder="Describe concept, date, and location ideas..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+              <span>Send Booking Request</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-container">
+    <div class="container footer-content">
       <div class="footer-brand">
-        <a href="#home" class="nav-logo">
-          <span class="logo-icon">&lt;/&gt;</span>
-          <span class="logo-text">ALEX<span class="highlight">.DEV</span></span>
+        <a href="#home" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-camera-retro"></i></span>
+          <span class="logo-text">ALEX<span class="highlight">.LENS</span></span>
         </a>
-        <p>Designing and building sleek, responsive dark mode digital experiences.</p>
+        <p>&copy; 2025 Alex Vance Photography. All rights reserved.</p>
       </div>
-
-      <div class="footer-copy">
-        <p>&copy; <span id="current-year">2025</span> Alex Vance. All rights reserved.</p>
-      </div>
-
-      <div class="back-to-top">
-        <a href="#home" class="scroll-top-btn" aria-label="Back to top">
-          <i class="fa-solid fa-chevron-up"></i>
-        </a>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Gallery</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- Main JavaScript File -->
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toast-message">Booking request sent successfully!</span>
+  </div>
+
   <script src="js/script.js"></script>
 </body>
 </html>

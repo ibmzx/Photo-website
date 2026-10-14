@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p4Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080410"/>
+      <stop offset="100%" stop-color="#19072e"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#p4Bg)"/>
+  <!-- Bokeh Circles -->
+  <circle cx="120" cy="100" r="45" fill="#a855f7" opacity="0.4"/>
+  <circle cx="180" cy="160" r="60" fill="#c084fc" opacity="0.3"/>
+  <circle cx="280" cy="90" r="35" fill="#38bdf8" opacity="0.35"/>
+  <circle cx="420" cy="220" r="75" fill="#f43f5e" opacity="0.3"/>
+  <circle cx="500" cy="120" r="50" fill="#a855f7" opacity="0.5"/>
+  <circle cx="340" cy="280" r="55" fill="#c084fc" opacity="0.4"/>
+  <!-- Focused Street Silhouette -->
+  <path d="M 280 400 L 290 280 L 320 280 L 330 400 Z" fill="#000000"/>
+  <circle cx="305" cy="265" r="12" fill="#000000"/>
+  <!-- Rain streak lines -->
+  <line x1="100" y1="0" x2="80" y2="400" stroke="#ffffff" stroke-width="0.8" opacity="0.2"/>
+  <line x1="250" y1="0" x2="230" y2="400" stroke="#ffffff" stroke-width="0.8" opacity="0.25"/>
+  <line x1="450" y1="0" x2="430" y2="400" stroke="#ffffff" stroke-width="0.8" opacity="0.2"/>
+  <text x="40" y="60" fill="#c084fc" font-family="sans-serif" font-size="14" font-weight="bold" letter-spacing="3">STREET BOKEH SHOT</text>
+</svg>

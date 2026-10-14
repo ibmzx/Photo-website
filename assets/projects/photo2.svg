@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p2Bg" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#020105"/>
+      <stop offset="40%" stop-color="#18072b"/>
+      <stop offset="100%" stop-color="#3b0764"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#p2Bg)"/>
+  <!-- City Horizon Silhouette -->
+  <polygon points="20,400 20,220 60,220 60,400 80,400 80,180 130,180 130,400 150,400 150,260 190,260 190,400 220,400 220,120 270,120 270,400 310,400 310,200 360,200 360,400 400,400 400,150 460,150 460,400 500,400 500,240 560,240 560,400" fill="#090314"/>
+  <!-- Neon outline buildings -->
+  <path d="M 80 180 L 130 180 M 220 120 L 270 120 M 400 150 L 460 150" stroke="#c084fc" stroke-width="3"/>
+  <!-- Wet road reflections -->
+  <ellipse cx="300" cy="360" rx="250" ry="20" fill="url(#purpleGlow)" opacity="0.3"/>
+  <!-- Grid Perspective Lines -->
+  <line x1="0" y1="320" x2="600" y2="320" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
+  <line x1="0" y1="360" x2="600" y2="360" stroke="#c084fc" stroke-width="1.5" opacity="0.5"/>
+  <text x="40" y="60" fill="#a855f7" font-family="sans-serif" font-size="14" font-weight="bold" letter-spacing="3">CYBERPUNK CITYSCAPE</text>
+</svg>

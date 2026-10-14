@@ -1,121 +1,95 @@
 /**
- * Alex Vance Portfolio - Main JavaScript
+ * Alex Vance Photography - Interactive Features & Lightbox EXIF
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --------------------------------------------------------------------------
-  // 1. Navigation & Mobile Menu Functionality
-  // --------------------------------------------------------------------------
-  const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navOverlay = document.getElementById('nav-overlay');
-  const navLinks = document.querySelectorAll('.nav-link');
 
-  // Sticky Navbar Blur on Scroll
-  window.addEventListener('scroll', () => {
+  /* --------------------------------------------------------------------------
+     1. Navigation Scroll Effect & Active Links
+     -------------------------------------------------------------------------- */
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  const handleScroll = () => {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
 
-  // Toggle Mobile Menu
-  const toggleMobileMenu = () => {
-    const isOpen = hamburger.classList.contains('active');
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    navOverlay.classList.toggle('active');
+    // Active link update based on scroll position
+    let currentSectionId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
 
-    hamburger.setAttribute('aria-expanded', !isOpen);
-    document.body.style.overflow = !isOpen ? 'hidden' : '';
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('active');
+      }
+    });
   };
 
-  const closeMobileMenu = () => {
+  window.addEventListener('scroll', handleScroll);
+
+  /* --------------------------------------------------------------------------
+     2. Mobile Navigation Drawer Toggle
+     -------------------------------------------------------------------------- */
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const menuBackdrop = document.getElementById('menu-backdrop');
+
+  const toggleMenu = () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    menuBackdrop.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  };
+
+  const closeMenu = () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
-    navOverlay.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
+    menuBackdrop.classList.remove('active');
     document.body.style.overflow = '';
   };
 
-  if (hamburger) hamburger.addEventListener('click', toggleMobileMenu);
-  if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
+  hamburger.addEventListener('click', toggleMenu);
+  menuBackdrop.addEventListener('click', closeMenu);
 
   navLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+    link.addEventListener('click', closeMenu);
   });
 
-  // Active Nav Link Highlighting on Scroll
-  const sections = document.querySelectorAll('section[id]');
-
-  const highlightActiveSection = () => {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document.querySelectorAll(`.nav-link[href*="${sectionId}"]`).forEach(l => l.classList.add('active'));
-      } else {
-        document.querySelectorAll(`.nav-link[href*="${sectionId}"]`).forEach(l => l.classList.remove('active'));
-      }
-    });
-  };
-
-  window.addEventListener('scroll', highlightActiveSection);
-
-  // --------------------------------------------------------------------------
-  // 2. Scroll Reveal Animations (Intersection Observer)
-  // --------------------------------------------------------------------------
-  const fadeElements = document.querySelectorAll('.fade-in');
-
-  const revealOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    root: null,
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  fadeElements.forEach(element => {
-    revealOnScroll.observe(element);
-  });
-
-  // --------------------------------------------------------------------------
-  // 3. Portfolio Dynamic Category Filter
-  // --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
+     3. Photo Category Filtering
+     -------------------------------------------------------------------------- */
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Set active filter button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
 
-      projectCards.forEach(card => {
+      portfolioCards.forEach(card => {
         const category = card.getAttribute('data-category');
-
         if (filterValue === 'all' || category === filterValue) {
-          card.style.display = 'flex';
+          card.style.display = 'block';
           setTimeout(() => {
             card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
+            card.style.transform = 'translateY(0)';
           }, 50);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(20px) scale(0.95)';
+          card.style.transform = 'translateY(20px)';
           setTimeout(() => {
             card.style.display = 'none';
           }, 300);
@@ -124,170 +98,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --------------------------------------------------------------------------
-  // 4. Lightbox Modal Popup Logic
-  // --------------------------------------------------------------------------
-  const projectModal = document.getElementById('project-modal');
+  /* --------------------------------------------------------------------------
+     4. Lightbox Photo Modal with EXIF Data & Prev/Next Navigation
+     -------------------------------------------------------------------------- */
+  const modal = document.getElementById('project-modal');
   const modalBackdrop = document.getElementById('modal-backdrop');
   const modalClose = document.getElementById('modal-close');
   const modalImg = document.getElementById('modal-img');
   const modalCategory = document.getElementById('modal-category');
   const modalTitle = document.getElementById('modal-title');
   const modalDescription = document.getElementById('modal-description');
-  const modalTags = document.getElementById('modal-tags');
-  const modalDemoBtn = document.getElementById('modal-demo-btn');
-  const modalGithubBtn = document.getElementById('modal-github-btn');
+  const exifCamera = document.getElementById('exif-camera');
+  const exifLens = document.getElementById('exif-lens');
+  const exifSettings = document.getElementById('exif-settings');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
 
-  // Detailed Project Data Store
-  const projectsData = {
-    "1": {
-      title: "Aura Analytics SaaS Platform",
-      category: "Web App",
-      image: "assets/projects/project1.svg",
-      description: "A comprehensive real-time telemetry dashboard for monitoring cloud microservices, database metrics, and user analytics. Features customizable drag-and-drop dark mode widgets, live WebSocket streaming, and automated alerts.",
-      tags: ["React", "TypeScript", "Node.js", "Chart.js", "Tailwind CSS", "WebSockets"],
-      demoUrl: "https://example.com/demo/aura",
-      githubUrl: "https://github.com/example/aura-analytics"
-    },
-    "2": {
-      title: "CyberFit Mobile Fitness App",
-      category: "Mobile App",
-      image: "assets/projects/project2.svg",
-      description: "Cross-platform iOS & Android workout app built with React Native. Includes interactive workout creation, social leaderboards, AI-powered form feedback, and neon haptic notifications.",
-      tags: ["React Native", "Expo", "Redux Toolkit", "Firebase", "Node.js"],
-      demoUrl: "https://example.com/demo/cyberfit",
-      githubUrl: "https://github.com/example/cyberfit-app"
-    },
-    "3": {
-      title: "Quantum AI Studio",
-      category: "Web App",
-      image: "assets/projects/project3.svg",
-      description: "Next-gen prompt engineering workbench for developers to test, benchmark, and deploy custom AI agent workflows. Features interactive graph nodes, low-latency streaming responses, and integrated Python runtime.",
-      tags: ["Next.js 14", "Python", "FastAPI", "PostgreSQL", "Tailwind CSS"],
-      demoUrl: "https://example.com/demo/quantum-ai",
-      githubUrl: "https://github.com/example/quantum-ai-studio"
-    },
-    "4": {
-      title: "CyberLedger Web3 Portal",
-      category: "UI/UX Design",
-      image: "assets/projects/project4.svg",
-      description: "A futuristic Web3 crypto asset dashboard and decentralized finance portal. Designed with deep dark mode aesthetics, vibrant purple accent glows, and seamless wallet connectivity UX.",
-      tags: ["UI/UX Design", "Figma", "Design System", "Web3.js", "Ethers.js"],
-      demoUrl: "https://example.com/demo/cyberledger",
-      githubUrl: "https://github.com/example/cyberledger-web3"
-    }
+  let currentPhotoIndex = 0;
+  const visibleCards = () => Array.from(portfolioCards).filter(c => c.style.display !== 'none');
+
+  const updateModalContent = (card) => {
+    const imgSrc = card.querySelector('.portfolio-img').getAttribute('src');
+    const category = card.getAttribute('data-category');
+    const title = card.getAttribute('data-title');
+    const desc = card.getAttribute('data-description');
+    const camera = card.getAttribute('data-exif-camera');
+    const lens = card.getAttribute('data-exif-lens');
+    const settings = card.getAttribute('data-exif-settings');
+
+    modalImg.setAttribute('src', imgSrc);
+    modalImg.setAttribute('alt', title);
+    modalCategory.textContent = category;
+    modalTitle.textContent = title;
+    modalDescription.textContent = desc;
+    exifCamera.textContent = camera || 'Sony A7 IV';
+    exifLens.textContent = lens || 'G-Master Optics';
+    exifSettings.textContent = settings || 'f/1.4 | ISO 100';
   };
 
-  const openModal = (projectId) => {
-    const data = projectsData[projectId];
-    if (!data) return;
+  const openLightbox = (cardIndex) => {
+    const list = visibleCards();
+    if (list.length === 0) return;
+    currentPhotoIndex = cardIndex;
+    updateModalContent(list[currentPhotoIndex]);
 
-    modalImg.src = data.image;
-    modalImg.alt = data.title;
-    modalCategory.textContent = data.category;
-    modalTitle.textContent = data.title;
-    modalDescription.textContent = data.description;
-    modalDemoBtn.href = data.demoUrl;
-    modalGithubBtn.href = data.githubUrl;
-
-    // Render Tech Tags
-    modalTags.innerHTML = data.tags.map(tag => `<span class="skill-tag"><i class="fa-solid fa-code"></i> ${tag}</span>`).join('');
-
-    projectModal.classList.add('active');
-    projectModal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
-  const closeModal = () => {
-    projectModal.classList.remove('active');
-    projectModal.setAttribute('aria-hidden', 'true');
+  const closeLightbox = () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
-  // Attach Click Handlers to View Buttons and Cards
-  document.querySelectorAll('.view-details-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const card = btn.closest('.project-card');
-      const projectId = card.getAttribute('data-project-id');
-      openModal(projectId);
+  portfolioCards.forEach((card, index) => {
+    card.addEventListener('click', (e) => {
+      const list = visibleCards();
+      const cardIdx = list.indexOf(card);
+      openLightbox(cardIdx !== -1 ? cardIdx : 0);
     });
   });
 
-  projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const projectId = card.getAttribute('data-project-id');
-      openModal(projectId);
-    });
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const list = visibleCards();
+    currentPhotoIndex = (currentPhotoIndex - 1 + list.length) % list.length;
+    updateModalContent(list[currentPhotoIndex]);
   });
 
-  if (modalClose) modalClose.addEventListener('click', closeModal);
-  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const list = visibleCards();
+    currentPhotoIndex = (currentPhotoIndex + 1) % list.length;
+    updateModalContent(list[currentPhotoIndex]);
+  });
 
-  // Close Modal on Escape Key
+  modalClose.addEventListener('click', closeLightbox);
+  modalBackdrop.addEventListener('click', closeLightbox);
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && projectModal.classList.contains('active')) {
-      closeModal();
-    }
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
   });
 
-  // --------------------------------------------------------------------------
-  // 5. Contact Form Validation & Submission Handling
-  // --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
+     5. Photoshoot Booking Form Handling
+     -------------------------------------------------------------------------- */
   const contactForm = document.getElementById('contact-form');
-  const formResponse = document.getElementById('form-response');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+
+  const showToast = (message) => {
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  };
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const submitBtn = contactForm.querySelector('#submit-btn');
+      const originalText = submitBtn.innerHTML;
 
-      let isValid = true;
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const messageInput = document.getElementById('message');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
 
-      // Clear previous error states
-      [nameInput, emailInput, messageInput].forEach(input => {
-        input.closest('.form-group').classList.remove('error');
-      });
-      formResponse.className = 'form-response-banner';
-      formResponse.style.display = 'none';
-
-      // Name Validation
-      if (!nameInput.value.trim()) {
-        nameInput.closest('.form-group').classList.add('error');
-        isValid = false;
-      }
-
-      // Email Validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-        emailInput.closest('.form-group').classList.add('error');
-        isValid = false;
-      }
-
-      // Message Validation
-      if (!messageInput.value.trim()) {
-        messageInput.closest('.form-group').classList.add('error');
-        isValid = false;
-      }
-
-      if (isValid) {
-        const submitBtn = document.getElementById('submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Sending...</span> <i class="fa-solid fa-circle-notch fa-spin"></i>';
-
-        // Simulate Async Server Request
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>';
-
-          formResponse.textContent = '🚀 Thank you! Your message has been received. I will get back to you shortly.';
-          formResponse.classList.add('success');
-
-          contactForm.reset();
-        }, 1200);
-      }
+      setTimeout(() => {
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        showToast('Thank you! Your photoshoot booking inquiry has been sent.');
+      }, 1200);
     });
   }
+
 });

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p5Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020104"/>
+      <stop offset="100%" stop-color="#120621"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="30%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#e9d5ff" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#p5Bg)"/>
+  <circle cx="220" cy="150" r="140" fill="url(#spotlight)"/>
+  <!-- Dramatic Rim-lit Model Profile -->
+  <path d="M 150 380 Q 180 260, 220 220 Q 240 200, 230 160 Q 220 120, 250 90 Q 270 70, 290 100 Q 300 130, 280 170 Q 270 190, 290 220 Q 320 270, 350 380 Z" fill="#07030e"/>
+  <!-- Highlighting Rim -->
+  <path d="M 220 220 Q 240 200, 230 160 Q 220 120, 250 90 Q 270 70, 290 100" stroke="#c084fc" stroke-width="3.5" fill="none" filter="drop-shadow(0px 0px 8px #a855f7)"/>
+  <text x="350" y="80" fill="#a855f7" font-family="sans-serif" font-size="14" font-weight="bold" letter-spacing="3">STUDIO LOW-KEY</text>
+</svg>
