@@ -131,9 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     modalCategory.textContent = category;
     modalTitle.textContent = title;
     modalDescription.textContent = desc;
-    exifCamera.textContent = camera || 'Sony A7 IV';
-    exifLens.textContent = lens || 'G-Master Optics';
-    exifSettings.textContent = settings || 'f/1.4 | ISO 100';
+    exifCamera.textContent = camera || 'Sony a6400';
+    exifLens.textContent = lens || 'Sony 16-55mm f/2.8 G';
+    exifSettings.textContent = settings || 'f/2.8 | ISO 100';
   };
 
   const openLightbox = (cardIndex) => {
