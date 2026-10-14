@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#150d2a"/>
+      <stop offset="100%" stop-color="#08060d"/>
+    </linearGradient>
+    <filter id="neonGlow3">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgGrad3)"/>
+
+  <!-- AI / Brain Cyber Mesh Design -->
+  <g stroke="#a855f7" stroke-width="1.5" opacity="0.6">
+    <line x1="100" y1="100" x2="200" y2="180"/>
+    <line x1="200" y1="180" x2="300" y2="120"/>
+    <line x1="300" y1="120" x2="420" y2="220"/>
+    <line x1="420" y1="220" x2="500" y2="140"/>
+    <line x1="200" y1="180" x2="280" y2="280"/>
+    <line x1="280" y1="280" x2="420" y2="220"/>
+    <line x1="300" y1="120" x2="280" y2="280"/>
+    <line x1="100" y1="100" x2="150" y2="260"/>
+    <line x1="150" y1="260" x2="280" y2="280"/>
+  </g>
+
+  <!-- Node Dots -->
+  <circle cx="100" cy="100" r="8" fill="#e9d5ff" filter="url(#neonGlow3)"/>
+  <circle cx="200" cy="180" r="10" fill="#a855f7" filter="url(#neonGlow3)"/>
+  <circle cx="300" cy="120" r="12" fill="#c084fc" filter="url(#neonGlow3)"/>
+  <circle cx="420" cy="220" r="14" fill="#a855f7" filter="url(#neonGlow3)"/>
+  <circle cx="500" cy="140" r="9" fill="#e9d5ff" filter="url(#neonGlow3)"/>
+  <circle cx="280" cy="280" r="11" fill="#d8b4fe" filter="url(#neonGlow3)"/>
+  <circle cx="150" cy="260" r="7" fill="#a855f7" filter="url(#neonGlow3)"/>
+
+  <text x="300" y="340" text-anchor="middle" fill="#e9d5ff" font-family="sans-serif" font-weight="bold" font-size="22" letter-spacing="2">AI QUANTUM ENGINE</text>
+</svg>
