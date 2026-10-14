@@ -368,8 +368,9 @@ h1, h2, h3, h4, h5, h6 {
    -------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  padding-top: calc(var(--nav-height) + 2rem);
+  min-height: calc(100vh - var(--nav-height));
+  margin-top: var(--nav-height);
+  padding-top: 3rem;
   padding-bottom: 4rem;
   display: flex;
   align-items: center;
@@ -928,6 +929,42 @@ h1, h2, h3, h4, h5, h6 {
 .social-icons {
   display: flex;
   gap: 0.8rem;
+}
+
+.qr-badge-card {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: border-color var(--transition-fast);
+}
+
+.qr-badge-card:hover {
+  border-color: var(--border-color-hover);
+}
+
+.qr-img {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.qr-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.qr-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
 }
 
 .social-icon {
